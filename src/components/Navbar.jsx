@@ -22,7 +22,9 @@ export default function Navbar() {
               </li>
             </ul>
             <form className="d-flex" role="search">
+              <Link to="/login">
               <button className="btn btn-outline-success" type="submit">Login</button>
+              </Link>
             </form>
           </div>
         </div>
