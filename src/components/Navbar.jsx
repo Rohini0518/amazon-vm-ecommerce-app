@@ -5,9 +5,9 @@ import { CartContext } from "./Home";
 export default function Navbar() {
   const cartValue = useContext(CartContext);
 
-  const cartTotal=cartValue.cart.reduce((prev,current)=>{
-    return prev+current.quantity;
-  },0)
+  const cartTotal = cartValue.cart.reduce((prev, current) => {
+    return prev + current.quantity;
+  }, 0)
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-dark" data-bs-theme="dark">
@@ -29,12 +29,14 @@ export default function Navbar() {
               </li>
             </ul>
             <form className="d-flex" role="search">
-              <button className="btn btn-primary">
-              <i className="fa fa-shopping-cart text-white"/> <sup>
-                {cartTotal}</sup>
-              </button>
+              <Link to="/home/checkout">
+                <button className="btn btn-primary">
+                  <i className="fa fa-shopping-cart text-white" /> <sup>
+                    {cartTotal}</sup>
+                </button>
+              </Link>
               <Link to="/login">
-              <button className="btn btn-outline-success" type="submit">Login</button>
+                <button className="btn btn-outline-success" type="submit">Login</button>
               </Link>
             </form>
           </div>

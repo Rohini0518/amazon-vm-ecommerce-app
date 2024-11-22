@@ -19,9 +19,16 @@ export default function Home() {
     setCart(updatedCart);
   }
 
+  const handleRemoveFromCart=(id)=>{
+    const updatedCart=[...cart];
+    const index = updatedCart.findIndex(cart=>cart.id===id);
+    updatedCart.splice(index,1);
+    setCart(updatedCart);
+  }
+
   return (
     <div>
-      <CartContext.Provider value={{handleAddToCart,cart}}>
+      <CartContext.Provider value={{handleAddToCart,cart,handleRemoveFromCart}}>
       <Navbar/>
       <Outlet/>
       </CartContext.Provider>

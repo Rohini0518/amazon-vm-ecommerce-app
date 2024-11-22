@@ -18,9 +18,12 @@ export default function Product({ product,size,moreInfo }) {
           {product.description}
         </p>
         {moreInfo && <p>More Info...</p>}
+        {product.quantity && <p>Quantity:{product.quantity}</p>}
       </div>
 
-      <button className="btn btn-primary" onClick={()=>cartValue.handleAddToCart(product)}>Add To Cart</button>
+      {product.quantity && <button className="btn btn-danger m-2" onClick={()=>cartValue.handleRemoveFromCart(product.id)}>Remove From Cart</button>}
+
+      <button className="btn btn-primary m-2" onClick={()=>cartValue.handleAddToCart(product)}>Add To Cart</button>
     </div>
   )
 }
