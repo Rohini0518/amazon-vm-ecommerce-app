@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./Home";
 
 export default function Product({ product,size,moreInfo }) {
+  const cartValue = useContext(CartContext);
   return (
     <div className={`card m-2 col-${size?size:'3'}`}>
       <Link to={`/home/product/${product.id}`}>
@@ -17,7 +20,7 @@ export default function Product({ product,size,moreInfo }) {
         {moreInfo && <p>More Info...</p>}
       </div>
 
-      <button className="btn btn-primary">Add To Cart</button>
+      <button className="btn btn-primary" onClick={()=>cartValue.handleAddToCart(product)}>Add To Cart</button>
     </div>
   )
 }
