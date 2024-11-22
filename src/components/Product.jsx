@@ -22,8 +22,9 @@ export default function Product({ product,size,moreInfo }) {
       </div>
 
       {product.quantity && <button className="btn btn-danger m-2" onClick={()=>cartValue.handleRemoveFromCart(product.id)}>Remove From Cart</button>}
-
       <button className="btn btn-primary m-2" onClick={()=>cartValue.handleAddToCart(product)}>Add To Cart</button>
+      {/* <button className="btn btn-primary m-2" onClick={()=>cartValue.handleAddToCart(product,'increment')}>Add To Cart</button>
+      <button className="btn btn-primary m-2" onClick={()=>cartValue.handleAddToCart(product,'decrement')}>Add To Cart</button> */}
     </div>
   )
 }

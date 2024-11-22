@@ -9,6 +9,8 @@ export default function Login() {
   const handleLogin=(e)=>{
     e.preventDefault();
     if(username==="admin" && password==="admin"){
+      localStorage.setItem("username",username);
+      localStorage.setItem("token",12345);
       navigate("/home",{replace:true})
     } else{
       alert("Invalid credentials!")

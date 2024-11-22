@@ -7,7 +7,7 @@ export const CartContext = createContext();
 export default function Home() {
   const [cart,setCart]=useState([]);
 
-  const handleAddToCart=(product)=>{
+  const handleAddToCart=(product,operation)=>{
     const updatedCart=[...cart];
     const isExist = updatedCart.find(cart=>cart.id===product.id);
     if(!isExist){
@@ -15,6 +15,11 @@ export default function Home() {
     } else if(isExist){
       const index = updatedCart.findIndex(cart=>cart.id===product.id);
       updatedCart[index].quantity+=1;
+      // if(operation==="increment"){
+      // updatedCart[index].quantity+=1;
+      // } else if(operation==="decrement"){
+      //   updatedCart[index].quantity-=1;
+      // }
     }
     setCart(updatedCart);
   }
